@@ -34,7 +34,7 @@
     .footer__contact-item{display:flex;align-items:flex-start;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.72);margin-bottom:10px;}.footer__contact-item a{color:rgba(255,255,255,0.72);transition:color 0.2s;}.footer__contact-item a:hover{color:var(--cyan-mid);}.footer__bottom{max-width:var(--max-w);margin:0 auto;border-top:1px solid rgba(255,255,255,0.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}.footer__rights{font-size:0.72rem;color:rgba(255,255,255,0.5);}.footer__crafted{font-size:0.72rem;color:rgba(255,255,255,0.45);}.footer__hours{color:rgba(255,255,255,0.72);}
     .field{display:flex;flex-direction:column;gap:6px;}.field label{font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-mid);}.field input,.field select,.field textarea{width:100%;padding:12px 16px;border-radius:var(--radius);border:1px solid var(--border);background:var(--cream2);color:var(--ink);font-family:inherit;font-size:0.88rem;outline:none;transition:border-color 0.2s ease;}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--cyan);}.field textarea{resize:none;}
     .page-hero{background:var(--dark);padding:calc(var(--nav-h) + 3rem) var(--gutter) 2.5rem;text-align:center;}.page-hero__label{color:var(--cyan-mid);}.page-hero__h1{font-size:clamp(2.4rem,6vw,4rem);font-weight:800;letter-spacing:-0.03em;color:#fff;line-height:1.05;margin-bottom:16px;}.page-hero__h1 span{color:var(--cyan-mid);}.page-hero__sub{font-size:1rem;color:rgba(255,255,255,0.55);max-width:520px;margin:0 auto;line-height:1.8;}
-    @media(min-width:768px){.nav__book{display:inline-flex;}.nav__hamburger{display:none;}.hide-md{display:none!important;}.nav__logo{margin-left:-90px;}.nav__logo img{height:60px!important;margin-left:-38px;}.nav__logo .nav__logo-text-main{margin-left:38px;}.nav__book{margin-left:95px;}}@media(max-width:767px){.nav__links{display:none;}.nav__logo-text-main{display:none;}.nav__inner{position:relative;}.nav__lang{position:absolute;left:110px;}.nav__book{margin-right:38px;}.show-mobile-only{display:block;}.footer__grid{grid-template-columns:1fr;gap:32px;}}
+    @media(min-width:768px){.nav__book{display:inline-flex;}.nav__hamburger{display:none;}.hide-md{display:none!important;}.nav__logo{margin-left:-120px;}.nav__logo img{height:60px!important;margin-left:-38px;}.nav__logo .nav__logo-text-main{margin-left:38px;}.nav__book{margin-left:95px;}}@media(max-width:767px){.nav__links{display:none;}.nav__logo-text-main{display:none;}.nav__inner{position:relative;}.nav__lang{position:absolute;left:110px;}.nav__book{margin-right:38px;}.show-mobile-only{display:block;}.footer__grid{grid-template-columns:1fr;gap:32px;}}
     /* ── Page Hero ── */
     .page-hero{position:relative;padding:clamp(7rem,14vw,11rem) var(--gutter) clamp(4rem,7vw,6rem);background:var(--dark);overflow:hidden;text-align:center}
     .page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(6,182,212,.18) 0%,transparent 70%);pointer-events:none}
@@ -158,35 +158,37 @@
 <!-- NAV -->
 <header class="nav" id="nav">
   <div class="nav__inner">
-    <a href="index.html" class="nav__logo">
+    <a href="index.html" class="nav__logo" aria-label="Spavas Dental Studio — Home">
       <img src="assets/logo.png" alt="Spavas Dental Studio" height="48" style="width:auto;display:block;object-fit:contain;">
       <div class="nav__logo-text-main" style="white-space:nowrap;letter-spacing:0.08em;">Spavas Dental Studio</div>
     </a>
     <nav class="nav__links">
-      <a href="services.html" data-t="nav.services">Servizi</a>
-      <a href="about.html" data-t="nav.about" class="active">Chi Siamo</a>
-      <a href="gallery.html" data-t="nav.gallery">Galleria</a>
-      <a href="reviews.html" data-t="nav.reviews">Recensioni</a>
-      <a href="contact.html" data-t="nav.contact">Contatti</a>
+      <a href="index.html"    id="nl-home"     data-t="nav.home">Home</a>
+      <a href="services.html" id="nl-services" data-t="nav.services">Servizi</a>
+      <a href="about.html"    id="nl-about"    data-t="nav.about" class="active">Chi Siamo</a>
+      <a href="gallery.html"  id="nl-gallery"  data-t="nav.gallery">Galleria</a>
+      <a href="reviews.html"  id="nl-reviews"  data-t="nav.reviews">Recensioni</a>
+      <a href="contact.html"  id="nl-contact"  data-t="nav.contact">Contatti</a>
     </nav>
     <div class="nav__right">
-      <div class="nav__lang">
-        <button onclick="setLang('it')" id="lang-it">IT</button>
-        <button onclick="setLang('sq')" id="lang-sq">AL</button>
-        <button onclick="setLang('en')" id="lang-en">EN</button>
+      <div class="nav__lang" role="group" aria-label="Select language">
+        <button onclick="setLang('it')" id="lang-it" aria-label="Italiano">IT</button>
+        <button onclick="setLang('sq')" id="lang-sq" aria-label="Shqip">AL</button>
+        <button onclick="setLang('en')" id="lang-en" aria-label="English">EN</button>
       </div>
-      <a href="contact.html" class="btn btn--cyan nav__book" data-t="nav.book">Prenota</a>
-      <button class="nav__hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+      <a href="contact.html" class="btn btn--cyan nav__book" id="nav-book-btn" data-t="nav.book">Prenota</a>
+      <button class="nav__hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 <div class="nav__mobile" id="mobile-menu">
-  <a href="services.html" data-t="nav.services">Servizi</a>
-  <a href="about.html" data-t="nav.about">Chi Siamo</a>
-  <a href="gallery.html" data-t="nav.gallery">Galleria</a>
-  <a href="reviews.html" data-t="nav.reviews">Recensioni</a>
-  <a href="contact.html" data-t="nav.contact">Contatti</a>
-  <a href="contact.html" class="nav__mobile-book" data-t="nav.book">Prenota</a>
+  <a href="index.html"    id="ml-home"     data-t="nav.home">Home</a>
+  <a href="services.html" id="ml-services" data-t="nav.services">Servizi</a>
+  <a href="about.html"    id="ml-about"    data-t="nav.about">Chi Siamo</a>
+  <a href="gallery.html"  id="ml-gallery"  data-t="nav.gallery">Galleria</a>
+  <a href="reviews.html"  id="ml-reviews"  data-t="nav.reviews">Recensioni</a>
+  <a href="contact.html"  id="ml-contact"  data-t="nav.contact">Contatti</a>
+  <a href="contact.html"  id="ml-book"     class="nav__mobile-book" data-t="nav.book">Prenota</a>
 </div>
 
 <!-- PAGE HERO -->
@@ -222,15 +224,15 @@
       <h2 class="story__h2">
         <span data-t="about.storyH2a">Eccellenza </span><span data-t="about.storyH2b">Dentale</span>
       </h2>
-      <p class="story__p" data-t="about.p1">Spavas Dental Studio nasce dalla passione di Dr.ssa Anxhela Kuçaj per l'eccellenza nelle cure dentali. Fondata a Valona, la clinica si è rapidamente affermata come punto di riferimento per pazienti italiani e albanesi.</p>
+      <p class="story__p" data-t="about.p1">Spavas Dental Studio nasce dalla passione di Dr. Shkumbin Lutaj per l'eccellenza nelle cure dentali. Fondata a Valona, la clinica si è rapidamente affermata come punto di riferimento per pazienti italiani e albanesi.</p>
       <p class="story__p" data-t="about.p2">Il nostro team combina tecnologia all'avanguardia con un approccio umano e personalizzato. Ogni paziente viene accolto con cura e seguito in ogni fase del trattamento.</p>
       <p class="story__p" data-t="about.p3">Con oltre 2.000 pazienti soddisfatti e 293 recensioni a 5 stelle su Google, siamo fieri di essere la scelta numero uno a Valona.</p>
 
       <div class="doctor-card">
         <div class="doctor-avatar">A</div>
         <div>
-          <div class="doctor-name">Dr.ssa Anxhela Kuçaj</div>
-          <div class="doctor-role" data-t="about.doctorTitle">Fondatrice &amp; Chirurgo Dentale</div>
+          <div class="doctor-name">Dr. Shkumbin Lutaj</div>
+          <div class="doctor-role" data-t="about.doctorTitle">Fondatore &amp; Chirurgo Dentale</div>
         </div>
       </div>
 
@@ -283,13 +285,13 @@
       <img
         class="team-photo"
         src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=500&q=90&auto=format&fit=crop&crop=face"
-        alt="Dr.ssa Anxhela Kuçaj"
+        alt="Dr. Shkumbin Lutaj"
         loading="lazy"
         width="500" height="280"
       />
       <div class="team-body">
-        <div class="team-name">Dr.ssa Anxhela Kuçaj</div>
-        <div class="team-role" data-t="team.members.0.role">Fondatrice &amp; Chirurgo Dentale</div>
+        <div class="team-name">Dr. Shkumbin Lutaj</div>
+        <div class="team-role" data-t="team.members.0.role">Fondatore &amp; Chirurgo Dentale</div>
         <p class="team-bio" data-t="team.members.0.bio">Specialista in implantologia e chirurgia dentale. Laureata con lode e con oltre 10 anni di esperienza clinica internazionale.</p>
       </div>
     </div>
@@ -459,26 +461,26 @@
 // ── Translation Object ──────────────────────────────────────────────
 const T = {
   it: {
-    nav: { services:'Servizi', about:'Chi Siamo', gallery:'Galleria', reviews:'Recensioni', contact:'Contatti', book:'Prenota' },
+    nav: { home:'Home', services:'Servizi', about:'Chi Siamo', gallery:'Galleria', reviews:'Recensioni', contact:'Contatti', book:'Prenota' },
     footer: { tagline:'Cure dentali di eccellenza nel cuore di Valona.', rights:'© 2025 Spavas Dental Studio. Tutti i diritti riservati.', links:'Link Rapidi', contact:'Contatti', crafted:'Progettato con cura', addrLabel:'Indirizzo', addr:'Rruga Sadik Zotaj, Vlorë, Albania', hoursLabel:'Orari', hours:'Lun–Sab: 09:00–19:00' },
-    about: { heroLabel:'Chi Siamo', heroH1a:'La Nostra ', heroH1b:'Storia', heroSub:'Una clinica dentale moderna nel cuore di Valona — costruita sulla fiducia, la cura e l\'eccellenza.', storyLabel:'La Nostra Storia', storyH2a:'Eccellenza ', storyH2b:'Dentale', p1:'Spavas Dental Studio nasce dalla passione di Dr.ssa Anxhela Kuçaj per l\'eccellenza nelle cure dentali. Fondata a Valona, la clinica si è rapidamente affermata come punto di riferimento per pazienti italiani e albanesi.', p2:'Il nostro team combina tecnologia all\'avanguardia con un approccio umano e personalizzato. Ogni paziente viene accolto con cura e seguito in ogni fase del trattamento.', p3:'Con oltre 2.000 pazienti soddisfatti e 293 recensioni a 5 stelle su Google, siamo fieri di essere la scelta numero uno a Valona.', doctorTitle:'Fondatrice & Chirurgo Dentale', whyLabel:'Perché Sceglierci', why:[ {title:'Prezzi Imbattibili', desc:'Risparmi fino al 70% rispetto ai prezzi italiani senza rinunciare alla qualità.'}, {title:'Team Multilingue', desc:'Personale che parla italiano, albanese e inglese.'}, {title:'Tecnologia Avanzata', desc:'Attrezzature di ultima generazione per diagnosi e trattamenti precisi.'}, {title:'Garanzia sul Lavoro', desc:'Tutti i trattamenti sono garantiti. La tua soddisfazione è la nostra priorità.'} ] },
-    team: { label:'Il Nostro Team', h2a:'I Nostri ', h2b:'Specialisti', sub:'Un team di professionisti dedicati alla tua salute e al tuo sorriso.', members:[ {role:'Fondatrice & Chirurgo Dentale', bio:'Specialista in implantologia e chirurgia dentale. Laureata con lode e con oltre 10 anni di esperienza clinica internazionale.'}, {role:'Ortodontista', bio:'Specialista in ortodonzia e trattamenti Invisalign. Esperto nell\'allineamento dentale per adulti e bambini.'}, {role:'Igienista Dentale', bio:'Specialista in igiene e prevenzione dentale. Dedita al benessere dei pazienti e alla cura preventiva quotidiana.'} ] },
+    about: { heroLabel:'Chi Siamo', heroH1a:'La Nostra ', heroH1b:'Storia', heroSub:'Una clinica dentale moderna nel cuore di Valona — costruita sulla fiducia, la cura e l\'eccellenza.', storyLabel:'La Nostra Storia', storyH2a:'Eccellenza ', storyH2b:'Dentale', p1:'Spavas Dental Studio nasce dalla passione di Dr. Shkumbin Lutaj per l\'eccellenza nelle cure dentali. Fondata a Valona, la clinica si è rapidamente affermata come punto di riferimento per pazienti italiani e albanesi.', p2:'Il nostro team combina tecnologia all\'avanguardia con un approccio umano e personalizzato. Ogni paziente viene accolto con cura e seguito in ogni fase del trattamento.', p3:'Con oltre 2.000 pazienti soddisfatti e 293 recensioni a 5 stelle su Google, siamo fieri di essere la scelta numero uno a Valona.', doctorTitle:'Fondatore & Chirurgo Dentale', whyLabel:'Perché Sceglierci', why:[ {title:'Prezzi Imbattibili', desc:'Risparmi fino al 70% rispetto ai prezzi italiani senza rinunciare alla qualità.'}, {title:'Team Multilingue', desc:'Personale che parla italiano, albanese e inglese.'}, {title:'Tecnologia Avanzata', desc:'Attrezzature di ultima generazione per diagnosi e trattamenti precisi.'}, {title:'Garanzia sul Lavoro', desc:'Tutti i trattamenti sono garantiti. La tua soddisfazione è la nostra priorità.'} ] },
+    team: { label:'Il Nostro Team', h2a:'I Nostri ', h2b:'Specialisti', sub:'Un team di professionisti dedicati alla tua salute e al tuo sorriso.', members:[ {role:'Fondatore & Chirurgo Dentale', bio:'Specialista in implantologia e chirurgia dentale. Laureata con lode e con oltre 10 anni di esperienza clinica internazionale.'}, {role:'Ortodontista', bio:'Specialista in ortodonzia e trattamenti Invisalign. Esperto nell\'allineamento dentale per adulti e bambini.'}, {role:'Igienista Dentale', bio:'Specialista in igiene e prevenzione dentale. Dedita al benessere dei pazienti e alla cura preventiva quotidiana.'} ] },
     whyUs: { label:'Perché Noi', h2a:'La Differenza ', h2b:'Spavas', sub:'Non siamo solo una clinica dentale — siamo il partner di fiducia per il tuo sorriso.', cta:'Prenota Visita Gratuita', features:[ {title:'Garanzia Totale', desc:'Tutti i trattamenti sono garantiti per iscritto. Nessun rischio per il paziente.'}, {title:'Pazienti Internazionali', desc:'Accogliamo pazienti da Italia, UK, Germania e oltre 20 paesi.'}, {title:'Risposta Rapida', desc:'Risposta entro 2 ore su WhatsApp. Prenotiamo entro 24 ore.'}, {title:'Top Rated', desc:'4.9 stelle su Google basato su 293 recensioni verificate.'} ] },
     cta: { h2:'Inizia il Tuo Percorso Verso un Sorriso Perfetto', sub:'Prenota la tua visita gratuita e scopri perché oltre 2.000 pazienti ci hanno scelto.', btn1:'Prenota Visita Gratuita', btn2:'Scrivi su WhatsApp' }
   },
   en: {
-    nav: { services:'Services', about:'About', gallery:'Gallery', reviews:'Reviews', contact:'Contact', book:'Book Now' },
+    nav: { home:'Home', services:'Services', about:'About', gallery:'Gallery', reviews:'Reviews', contact:'Contact', book:'Book Now' },
     footer: { tagline:'Advanced dental care in the heart of Vlorë.', rights:'© 2025 Spavas Dental Studio. All rights reserved.', links:'Quick Links', contact:'Contact', crafted:'Designed with care', addrLabel:'Address', addr:'Rruga Sadik Zotaj, Vlorë, Albania', hoursLabel:'Hours', hours:'Mon–Sat: 09:00–19:00' },
-    about: { heroLabel:'About Us', heroH1a:'Our ', heroH1b:'Story', heroSub:'A modern dental clinic in the heart of Vlorë — built on trust, care and excellence.', storyLabel:'Our Story', storyH2a:'Dental ', storyH2b:'Excellence', p1:'Spavas Dental Studio was born from Dr. Anxhela Kuçaj\'s passion for excellence in dental care. Founded in Vlorë, Albania, the clinic quickly became the reference point for Italian and Albanian patients.', p2:'Our team combines cutting-edge technology with a human and personalized approach. Every patient is welcomed as a guest and followed through every stage of treatment.', p3:'With over 2,000 satisfied patients and 293 five-star reviews on Google, we are proud to be the top choice for dental care in Vlorë.', doctorTitle:'Founder & Dental Surgeon', whyLabel:'Why Choose Us', why:[ {title:'Unbeatable Prices', desc:'Save up to 70% compared to Italian prices without compromising on quality.'}, {title:'Multilingual Team', desc:'Staff speaking Italian, Albanian and English.'}, {title:'Advanced Technology', desc:'State-of-the-art equipment for precise diagnoses and treatments.'}, {title:'Work Guarantee', desc:'All treatments are guaranteed. Your satisfaction is our priority.'} ] },
+    about: { heroLabel:'About Us', heroH1a:'Our ', heroH1b:'Story', heroSub:'A modern dental clinic in the heart of Vlorë — built on trust, care and excellence.', storyLabel:'Our Story', storyH2a:'Dental ', storyH2b:'Excellence', p1:'Spavas Dental Studio was born from Dr. Shkumbin Lutaj\'s passion for excellence in dental care. Founded in Vlorë, Albania, the clinic quickly became the reference point for Italian and Albanian patients.', p2:'Our team combines cutting-edge technology with a human and personalized approach. Every patient is welcomed as a guest and followed through every stage of treatment.', p3:'With over 2,000 satisfied patients and 293 five-star reviews on Google, we are proud to be the top choice for dental care in Vlorë.', doctorTitle:'Founder & Dental Surgeon', whyLabel:'Why Choose Us', why:[ {title:'Unbeatable Prices', desc:'Save up to 70% compared to Italian prices without compromising on quality.'}, {title:'Multilingual Team', desc:'Staff speaking Italian, Albanian and English.'}, {title:'Advanced Technology', desc:'State-of-the-art equipment for precise diagnoses and treatments.'}, {title:'Work Guarantee', desc:'All treatments are guaranteed. Your satisfaction is our priority.'} ] },
     team: { label:'Our Team', h2a:'Our ', h2b:'Specialists', sub:'A team of professionals dedicated to your health and your smile.', members:[ {role:'Founder & Dental Surgeon', bio:'Specialist in implantology and dental surgery. Graduated with honors and with over 10 years of international clinical experience.'}, {role:'Orthodontist', bio:'Specialist in orthodontics and Invisalign treatments. Expert in dental alignment for adults and children.'}, {role:'Dental Hygienist', bio:'Specialist in dental hygiene and prevention. Dedicated to patient wellbeing and daily preventive care.'} ] },
     whyUs: { label:'Why Us', h2a:'The Spavas ', h2b:'Difference', sub:'We\'re not just a dental clinic — we\'re your trusted partner for your smile.', cta:'Book Free Consultation', features:[ {title:'Full Guarantee', desc:'All treatments are guaranteed in writing. No risk for the patient.'}, {title:'International Patients', desc:'We welcome patients from Italy, UK, Germany and over 20 countries.'}, {title:'Fast Response', desc:'Reply within 2 hours on WhatsApp. We book within 24 hours.'}, {title:'Top Rated', desc:'4.9 stars on Google based on 293 verified reviews.'} ] },
     cta: { h2:'Start Your Journey Towards a Perfect Smile', sub:'Book your free consultation and discover why over 2,000 patients have chosen us.', btn1:'Book Free Consultation', btn2:'WhatsApp Us' }
   },
   sq: {
-    nav: { services:'Shërbimet', about:'Rreth Nesh', gallery:'Galeria', reviews:'Recensionet', contact:'Kontakt', book:'Rezervo' },
+    nav: { home:'Kreu', services:'Shërbimet', about:'Rreth Nesh', gallery:'Galeria', reviews:'Recensionet', contact:'Kontakt', book:'Rezervo' },
     footer: { tagline:'Kujdes dentar i avancuar në zemër të Vlorës.', rights:'© 2025 Spavas Dental Studio. Të gjitha të drejtat e rezervuara.', links:'Lidhje të Shpejta', contact:'Kontakt', crafted:'Dizajnuar me kujdes', addrLabel:'Adresa', addr:'Rruga Sadik Zotaj, Vlorë, Shqipëri', hoursLabel:'Oraret', hours:'Hën–Sht: 09:00–19:00' },
-    about: { heroLabel:'Rreth Nesh', heroH1a:'Historia ', heroH1b:'Jonë', heroSub:'Një klinikë dentare moderne në zemër të Vlorës — e ndërtuar mbi besim, kujdes dhe ekselencë.', storyLabel:'Historia Jonë', storyH2a:'Ekselencë ', storyH2b:'Dentare', p1:'Spavas Dental Studio lindi nga pasioni i Dr. Anxhela Kuçaj për ekselencën në kujdesin dentar. E themeluar në Vlorë, klinika u bë shpejt pikë referimi për pacientët italianë dhe shqiptarë.', p2:'Ekipi ynë kombinon teknologjinë e fundit me një qasje njerëzore dhe të personalizuar. Çdo pacient pritet si mysafir dhe shoqërohet në çdo fazë të trajtimit.', p3:'Me mbi 2.000 pacientë të kënaqur dhe 293 recensione me 5 yje në Google, jemi krenarë të jemi zgjedhja numër një në Vlorë.', doctorTitle:'Themeluese & Kirurge Dentare', whyLabel:'Pse të Na Zgjidhni', why:[ {title:'Çmime të Papërsëritshme', desc:'Kurseni deri në 70% krahasuar me çmimet italiane pa sakrifikuar cilësinë.'}, {title:'Ekip Shumëgjuhësh', desc:'Personel që flet italisht, shqip dhe anglisht.'}, {title:'Teknologji e Avancuar', desc:'Pajisje të gjeneratës së fundit për diagnoza dhe trajtime precize.'}, {title:'Garanci për Punën', desc:'Të gjitha trajtimet janë të garantuara. Kënaqësia juaj është prioriteti ynë.'} ] },
-    team: { label:'Ekipi Ynë', h2a:'Specialistët ', h2b:'Tanë', sub:'Një ekip profesionistësh të dedikuar për shëndetin dhe buzëqeshjen tuaj.', members:[ {role:'Themeluese & Kirurge Dentare', bio:'Specialiste në implantologji dhe kirurgji dentare. Diplomuar me lëvdata dhe me mbi 10 vjet eksperiencë klinike ndërkombëtare.'}, {role:'Ortodontiste', bio:'Specialiste në ortodonci dhe trajtime Invisalign. Eksperte në rreshtimin dentar për të rritur dhe fëmijë.'}, {role:'Higjieniste Dentare', bio:'Specialiste në higjienën dhe parandalimin dentar. E dedikuar për mirëqenien e pacientëve dhe kujdesin parandalues.'} ] },
+    about: { heroLabel:'Rreth Nesh', heroH1a:'Historia ', heroH1b:'Jonë', heroSub:'Një klinikë dentare moderne në zemër të Vlorës — e ndërtuar mbi besim, kujdes dhe ekselencë.', storyLabel:'Historia Jonë', storyH2a:'Ekselencë ', storyH2b:'Dentare', p1:'Spavas Dental Studio lindi nga pasioni i Dr. Shkumbin Lutaj për ekselencën në kujdesin dentar. E themeluar në Vlorë, klinika u bë shpejt pikë referimi për pacientët italianë dhe shqiptarë.', p2:'Ekipi ynë kombinon teknologjinë e fundit me një qasje njerëzore dhe të personalizuar. Çdo pacient pritet si mysafir dhe shoqërohet në çdo fazë të trajtimit.', p3:'Me mbi 2.000 pacientë të kënaqur dhe 293 recensione me 5 yje në Google, jemi krenarë të jemi zgjedhja numër një në Vlorë.', doctorTitle:'Themelues & Kirurge Dentare', whyLabel:'Pse të Na Zgjidhni', why:[ {title:'Çmime të Papërsëritshme', desc:'Kurseni deri në 70% krahasuar me çmimet italiane pa sakrifikuar cilësinë.'}, {title:'Ekip Shumëgjuhësh', desc:'Personel që flet italisht, shqip dhe anglisht.'}, {title:'Teknologji e Avancuar', desc:'Pajisje të gjeneratës së fundit për diagnoza dhe trajtime precize.'}, {title:'Garanci për Punën', desc:'Të gjitha trajtimet janë të garantuara. Kënaqësia juaj është prioriteti ynë.'} ] },
+    team: { label:'Ekipi Ynë', h2a:'Specialistët ', h2b:'Tanë', sub:'Një ekip profesionistësh të dedikuar për shëndetin dhe buzëqeshjen tuaj.', members:[ {role:'Themelues & Kirurge Dentare', bio:'Specialiste në implantologji dhe kirurgji dentare. Diplomuar me lëvdata dhe me mbi 10 vjet eksperiencë klinike ndërkombëtare.'}, {role:'Ortodontiste', bio:'Specialiste në ortodonci dhe trajtime Invisalign. Eksperte në rreshtimin dentar për të rritur dhe fëmijë.'}, {role:'Higjieniste Dentare', bio:'Specialiste në higjienën dhe parandalimin dentar. E dedikuar për mirëqenien e pacientëve dhe kujdesin parandalues.'} ] },
     whyUs: { label:'Pse Ne', h2a:'Dallimi ', h2b:'Spavas', sub:'Ne nuk jemi vetëm një klinikë dentare — jemi partneri juaj i besuar për buzëqeshjen tuaj.', cta:'Rezervo Vizitë Falas', features:[ {title:'Garanci e Plotë', desc:'Të gjitha trajtimet janë të garantuara me shkrim. Asnjë rrezik për pacientin.'}, {title:'Pacientë Ndërkombëtarë', desc:'Pranojmë pacientë nga Italia, UK, Gjermania dhe mbi 20 vende.'}, {title:'Përgjigje e Shpejtë', desc:'Përgjigje brenda 2 orësh në WhatsApp. Rezervojmë brenda 24 orësh.'}, {title:'Më i Vlerësuari', desc:'4.9 yje në Google bazuar në 293 recensione të verifikuara.'} ] },
     cta: { h2:'Fillo Udhëtimin Tënd Drejt një Buzëqeshjeje Perfekte', sub:'Rezervo vizitën tënde falas dhe zbulo pse mbi 2.000 pacientë na kanë zgjedhur.', btn1:'Rezervo Vizitë Falas', btn2:'Shkruaj në WhatsApp' }
   }

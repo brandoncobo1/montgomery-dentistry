@@ -105,7 +105,7 @@
     .page-hero__h1{font-size:clamp(2.4rem,6vw,4rem);font-weight:800;letter-spacing:-0.03em;color:#fff;line-height:1.05;margin-bottom:16px;}
     .page-hero__h1 span{color:var(--cyan-mid);}
     .page-hero__sub{font-size:1rem;color:rgba(255,255,255,0.55);max-width:520px;margin:0 auto;line-height:1.8;}
-    @media(min-width:768px){.nav__book{display:inline-flex;}.nav__hamburger{display:none;}.hide-md{display:none!important;}.nav__logo{margin-left:-90px;}.nav__logo img{height:60px!important;margin-left:-38px;}.nav__logo .nav__logo-text-main{margin-left:38px;}.nav__book{margin-left:95px;}}
+    @media(min-width:768px){.nav__book{display:inline-flex;}.nav__hamburger{display:none;}.hide-md{display:none!important;}.nav__logo{margin-left:-120px;}.nav__logo img{height:60px!important;margin-left:-38px;}.nav__logo .nav__logo-text-main{margin-left:38px;}.nav__book{margin-left:95px;}}
     @media(max-width:767px){.nav__links{display:none;}.nav__logo-text-main{display:none;}.nav__inner{position:relative;}.nav__lang{position:absolute;left:110px;}.nav__book{margin-right:38px;}.show-mobile-only{display:block;}.footer__grid{grid-template-columns:1fr;gap:32px;}}
     /* ===== HERO ===== */
     .hero { position:relative; min-height:100vh; display:flex; align-items:center; overflow:hidden; }
@@ -297,35 +297,37 @@
 <!-- NAV -->
 <header class="nav" id="nav">
   <div class="nav__inner">
-    <a href="index.html" class="nav__logo">
+    <a href="index.html" class="nav__logo" aria-label="Spavas Dental Studio — Home">
       <img src="assets/logo.png" alt="Spavas Dental Studio" height="48" style="width:auto;display:block;object-fit:contain;">
       <div class="nav__logo-text-main" style="white-space:nowrap;letter-spacing:0.08em;">Spavas Dental Studio</div>
     </a>
     <nav class="nav__links">
-      <a href="services.html" data-t="nav.services">Servizi</a>
-      <a href="about.html" data-t="nav.about">Chi Siamo</a>
-      <a href="gallery.html" data-t="nav.gallery">Galleria</a>
-      <a href="reviews.html" data-t="nav.reviews">Recensioni</a>
-      <a href="contact.html" data-t="nav.contact">Contatti</a>
+      <a href="index.html"    id="nl-home"     data-t="nav.home" class="active">Home</a>
+      <a href="services.html" id="nl-services" data-t="nav.services">Servizi</a>
+      <a href="about.html"    id="nl-about"    data-t="nav.about">Chi Siamo</a>
+      <a href="gallery.html"  id="nl-gallery"  data-t="nav.gallery">Galleria</a>
+      <a href="reviews.html"  id="nl-reviews"  data-t="nav.reviews">Recensioni</a>
+      <a href="contact.html"  id="nl-contact"  data-t="nav.contact">Contatti</a>
     </nav>
     <div class="nav__right">
-      <div class="nav__lang">
-        <button onclick="setLang('it')" id="lang-it">IT</button>
-        <button onclick="setLang('sq')" id="lang-sq">AL</button>
-        <button onclick="setLang('en')" id="lang-en">EN</button>
+      <div class="nav__lang" role="group" aria-label="Select language">
+        <button onclick="setLang('it')" id="lang-it" aria-label="Italiano">IT</button>
+        <button onclick="setLang('sq')" id="lang-sq" aria-label="Shqip">AL</button>
+        <button onclick="setLang('en')" id="lang-en" aria-label="English">EN</button>
       </div>
-      <a href="contact.html" class="btn btn--cyan nav__book" data-t="nav.book">Prenota</a>
+      <a href="contact.html" class="btn btn--cyan nav__book" id="nav-book-btn" data-t="nav.book">Prenota</a>
       <button class="nav__hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 <div class="nav__mobile" id="mobile-menu">
-  <a href="services.html" data-t="nav.services">Servizi</a>
-  <a href="about.html" data-t="nav.about">Chi Siamo</a>
-  <a href="gallery.html" data-t="nav.gallery">Galleria</a>
-  <a href="reviews.html" data-t="nav.reviews">Recensioni</a>
-  <a href="contact.html" data-t="nav.contact">Contatti</a>
-  <a href="contact.html" class="nav__mobile-book" data-t="nav.book">Prenota</a>
+  <a href="index.html"    id="ml-home"     data-t="nav.home">Home</a>
+  <a href="services.html" id="ml-services" data-t="nav.services">Servizi</a>
+  <a href="about.html"    id="ml-about"    data-t="nav.about">Chi Siamo</a>
+  <a href="gallery.html"  id="ml-gallery"  data-t="nav.gallery">Galleria</a>
+  <a href="reviews.html"  id="ml-reviews"  data-t="nav.reviews">Recensioni</a>
+  <a href="contact.html"  id="ml-contact"  data-t="nav.contact">Contatti</a>
+  <a href="contact.html"  id="ml-book"     class="nav__mobile-book" data-t="nav.book">Prenota</a>
 </div>
 
 <!-- ===== 1. HERO ===== -->
@@ -823,7 +825,7 @@
 /* ===== TRANSLATIONS ===== */
 const T = {
   it: {
-    nav: { services:'Servizi', about:'Chi Siamo', gallery:'Galleria', reviews:'Recensioni', contact:'Contatti', book:'Prenota' },
+    nav: { home:'Home', services:'Servizi', about:'Chi Siamo', gallery:'Galleria', reviews:'Recensioni', contact:'Contatti', book:'Prenota' },
     footer: { tagline:'Cure dentali di eccellenza nel cuore di Valona.', rights:'© 2025 Spavas Dental Studio. Tutti i diritti riservati.', links:'Link Rapidi', contact:'Contatti', crafted:'Progettato con cura' },
     hero: { badge:'Clinica Dentale · Vlorë, Albania', h1a:'Il Tuo Sorriso<br>Merita il ', h1b:'Meglio', sub:'Cure dentali d\'eccellenza nel cuore di Valona. Implantologia, faccette, sbiancamento e molto altro — con prezzi accessibili e qualità europea.', cta1:'Prenota Visita Gratuita', cta2:'Scrivi su WhatsApp', scoreLabel:'293 recensioni su Google' },
     stats: { 0:{label:'Recensioni Google'}, 1:{label:'Anni di Esperienza'}, 2:{label:'Pazienti Soddisfatti'}, 3:{label:'Prima Visita'} },
@@ -837,7 +839,7 @@ const T = {
     cta: { h2:'Pronto per il Sorriso che Meriti?', sub:'Prenota la tua visita gratuita oggi. Nessun obbligo, solo un sorriso migliore.', btn1:'Prenota Visita Gratuita', btn2:'Scrivi su WhatsApp' }
   },
   en: {
-    nav: { services:'Services', about:'About', gallery:'Gallery', reviews:'Reviews', contact:'Contact', book:'Book Now' },
+    nav: { home:'Home', services:'Services', about:'About', gallery:'Gallery', reviews:'Reviews', contact:'Contact', book:'Book Now' },
     footer: { tagline:'Advanced dental care in the heart of Vlorë.', rights:'© 2025 Spavas Dental Studio. All rights reserved.', links:'Quick Links', contact:'Contact', crafted:'Designed with care' },
     hero: { badge:'Dental Clinic · Vlorë, Albania', h1a:'Your Smile<br>Deserves the ', h1b:'Best', sub:'World-class dental care in the heart of Vlorë, Albania. Implants, veneers, whitening and more — at unbeatable prices.', cta1:'Book Free Consultation', cta2:'WhatsApp Us', scoreLabel:'293 reviews on Google' },
     stats: { 0:{label:'Google Reviews'}, 1:{label:'Years of Experience'}, 2:{label:'Happy Patients'}, 3:{label:'First Visit'} },
@@ -851,7 +853,7 @@ const T = {
     cta: { h2:'Ready for the Smile You Deserve?', sub:'Book your free consultation today. No obligation, just a better smile.', btn1:'Book Free Consultation', btn2:'WhatsApp Us' }
   },
   sq: {
-    nav: { services:'Shërbimet', about:'Rreth Nesh', gallery:'Galeria', reviews:'Recensionet', contact:'Kontakt', book:'Rezervo' },
+    nav: { home:'Kreu', services:'Shërbimet', about:'Rreth Nesh', gallery:'Galeria', reviews:'Recensionet', contact:'Kontakt', book:'Rezervo' },
     footer: { tagline:'Kujdes dentar i avancuar në zemër të Vlorës.', rights:'© 2025 Spavas Dental Studio. Të gjitha të drejtat e rezervuara.', links:'Lidhje të Shpejta', contact:'Kontakt', crafted:'Dizajnuar me kujdes' },
     hero: { badge:'Klinikë Dentare · Vlorë, Shqipëri', h1a:'Buzëqeshja Jote<br>Meriton ', h1b:'më të Mirën', sub:'Kujdes dentar i nivelit botëror në zemër të Vlorës. Implantime, faceta, zbardhim dhe më shumë — me çmime të përballueshme.', cta1:'Rezervo Vizitë Falas', cta2:'Shkruaj në WhatsApp', scoreLabel:'293 recensione në Google' },
     stats: { 0:{label:'Recensione Google'}, 1:{label:'Vite Eksperiencë'}, 2:{label:'Pacientë të Kënaqur'}, 3:{label:'Vizita e Parë'} },
@@ -871,17 +873,17 @@ const REVIEWS = {
   it: [
     { name:'Marco F.', text:'"Clinica fantastica! Ho fatto un impianto e il risultato è perfetto, senza dolore. Consiglio vivamente!"', meta:'Milano · Google' },
     { name:'Giulia R.', text:'"Servizio eccellente. L\'ambiente è pulito e moderno. Il team è meraviglioso."', meta:'Roma · Google' },
-    { name:'Arta M.', text:'"Klinikë fantastike! Dr. Anxhela është shumë profesionale. Implanti doli perfekt!"', meta:'Vlorë · Google' }
+    { name:'Arta M.', text:'"Klinikë fantastike! Dr. Shkumbin është shumë profesional. Implanti doli perfekt!"', meta:'Vlorë · Google' }
   ],
   en: [
     { name:'Marco F.', text:'"Fantastic clinic! I had an implant and the result is perfect, no pain. Highly recommended!"', meta:'Milan · Google' },
     { name:'Giulia R.', text:'"Excellent service. The environment is clean and modern. The team is wonderful."', meta:'Rome · Google' },
-    { name:'Arta M.', text:'"Fantastic clinic! Dr. Anxhela is very professional. My implant turned out perfect!"', meta:'Vlorë · Google' }
+    { name:'Arta M.', text:'"Fantastic clinic! Dr. Shkumbin is very professional. My implant turned out perfect!"', meta:'Vlorë · Google' }
   ],
   sq: [
     { name:'Marco F.', text:'"Klinikë fantastike! Bëra një implant dhe rezultati është perfekt, pa dhimbje. Rekomandoj fuqishëm!"', meta:'Milano · Google' },
     { name:'Giulia R.', text:'"Shërbim i shkëlqyer. Ambienti është i pastër dhe modern. Ekipi është i mrekullueshëm."', meta:'Roma · Google' },
-    { name:'Arta M.', text:'"Klinikë fantastike! Dr. Anxhela është shumë profesionale. Implanti doli perfekt!"', meta:'Vlorë · Google' }
+    { name:'Arta M.', text:'"Klinikë fantastike! Dr. Shkumbin është shumë profesional. Implanti doli perfekt!"', meta:'Vlorë · Google' }
   ]
 };
 

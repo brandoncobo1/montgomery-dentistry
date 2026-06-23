@@ -38,7 +38,7 @@
     .footer__contact-item{display:flex;align-items:flex-start;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.72);margin-bottom:10px;}.footer__contact-item a{color:rgba(255,255,255,0.72);transition:color 0.2s;}.footer__contact-item a:hover{color:var(--cyan-mid);}.footer__bottom{max-width:var(--max-w);margin:0 auto;border-top:1px solid rgba(255,255,255,0.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}.footer__rights{font-size:0.72rem;color:rgba(255,255,255,0.5);}.footer__crafted{font-size:0.72rem;color:rgba(255,255,255,0.45);}.footer__hours{color:rgba(255,255,255,0.72);}
     .field{display:flex;flex-direction:column;gap:6px;}.field label{font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-mid);}.field input,.field select,.field textarea{width:100%;padding:12px 16px;border-radius:var(--radius);border:1px solid var(--border);background:var(--cream2);color:var(--ink);font-family:inherit;font-size:0.88rem;outline:none;transition:border-color 0.2s ease;}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--cyan);}.field textarea{resize:none;}
     .page-hero{background:var(--dark);padding:calc(var(--nav-h) + 3rem) var(--gutter) 2.5rem;text-align:center;}.page-hero__label{color:var(--cyan-mid);}.page-hero__h1{font-size:clamp(2.4rem,6vw,4rem);font-weight:800;letter-spacing:-0.03em;color:#fff;line-height:1.05;margin-bottom:16px;}.page-hero__h1 span{color:var(--cyan-mid);}.page-hero__sub{font-size:1rem;color:rgba(255,255,255,0.55);max-width:520px;margin:0 auto;line-height:1.8;}
-    @media(min-width:768px){.nav__book{display:inline-flex;}.nav__hamburger{display:none;}.hide-md{display:none!important;}.nav__logo{margin-left:-90px;}.nav__logo img{height:60px!important;margin-left:-38px;}.nav__logo .nav__logo-text-main{margin-left:38px;}.nav__book{margin-left:95px;}}@media(max-width:767px){.nav__links{display:none;}.nav__logo-text-main{display:none;}.nav__inner{position:relative;}.nav__lang{position:absolute;left:110px;}.nav__book{margin-right:38px;}.show-mobile-only{display:block;}.footer__grid{grid-template-columns:1fr;gap:32px;}}
+    @media(min-width:768px){.nav__book{display:inline-flex;}.nav__hamburger{display:none;}.hide-md{display:none!important;}.nav__logo{margin-left:-120px;}.nav__logo img{height:60px!important;margin-left:-38px;}.nav__logo .nav__logo-text-main{margin-left:38px;}.nav__book{margin-left:95px;}}@media(max-width:767px){.nav__links{display:none;}.nav__logo-text-main{display:none;}.nav__inner{position:relative;}.nav__lang{position:absolute;left:110px;}.nav__book{margin-right:38px;}.show-mobile-only{display:block;}.footer__grid{grid-template-columns:1fr;gap:32px;}}
     /* ── PAGE HERO ───────────────────────────────────── */
     .page-hero {
       position:relative;
@@ -986,7 +986,7 @@ function renderPage() {
 
   // ── Lang buttons ──────────────────────────────────────
   ['it','sq','en'].forEach(function(l) {
-    var btn = document.getElementById('lb-'+l);
+    var btn = document.getElementById('lang-'+l);
     if (btn) btn.classList.toggle('active', l === LANG);
   });
   document.documentElement.lang = LANG;

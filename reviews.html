@@ -19,7 +19,7 @@
     .wa-float{position:fixed;bottom:24px;right:24px;z-index:50;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);opacity:0;transform:scale(0.8);transition:opacity 0.4s ease,transform 0.4s ease;text-decoration:none;}.wa-float.show{opacity:1;transform:scale(1);}.wa-float.pulse{animation:waPulse 2.2s ease-in-out infinite;}
     .footer{background:#070F1C;border-top:1px solid rgba(6,182,212,0.1);padding:56px var(--gutter) 32px;}.footer__grid{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:48px;}.footer__brand-name{font-size:0.95rem;font-weight:700;color:#fff;}.footer__brand-sub{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--cyan-mid);}.footer__tagline{font-size:0.83rem;color:rgba(255,255,255,0.65);line-height:1.8;margin:16px 0 20px;}.footer__socials{display:flex;gap:10px;}.footer__social{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.55);transition:background 0.2s ease;}.footer__social:hover{background:var(--cyan);color:#fff;}.footer__social--wa{background:#25D366;color:#fff;}.footer__col-title{font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:20px;}.footer__links{display:flex;flex-direction:column;gap:12px;}.footer__links a,.footer__links button{font-size:0.85rem;color:rgba(255,255,255,0.72);transition:color 0.2s ease;text-align:left;width:100%;}.footer__links a:hover,.footer__links button:hover{color:var(--cyan-mid);}.footer__contact-item{display:flex;align-items:flex-start;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.72);margin-bottom:10px;}.footer__contact-item a{color:rgba(255,255,255,0.72);transition:color 0.2s;}.footer__contact-item a:hover{color:var(--cyan-mid);}.footer__bottom{max-width:var(--max-w);margin:0 auto;border-top:1px solid rgba(255,255,255,0.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}.footer__rights{font-size:0.72rem;color:rgba(255,255,255,0.5);}.footer__crafted{font-size:0.72rem;color:rgba(255,255,255,0.45);}.footer__hours{color:rgba(255,255,255,0.72);}
     .field{display:flex;flex-direction:column;gap:6px;}.field label{font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-mid);}.field input,.field select,.field textarea{width:100%;padding:12px 16px;border-radius:var(--radius);border:1px solid var(--border);background:var(--cream2);color:var(--ink);font-family:inherit;font-size:0.88rem;outline:none;transition:border-color 0.2s ease;}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--cyan);}.field textarea{resize:none;}.page-hero{background:var(--dark);padding:calc(var(--nav-h) + 3rem) var(--gutter) 2.5rem;text-align:center;}.page-hero__label{color:var(--cyan-mid);}.page-hero__h1{font-size:clamp(2.4rem,6vw,4rem);font-weight:800;letter-spacing:-0.03em;color:#fff;line-height:1.05;margin-bottom:16px;}.page-hero__h1 span{color:var(--cyan-mid);}.page-hero__sub{font-size:1rem;color:rgba(255,255,255,0.55);max-width:520px;margin:0 auto;line-height:1.8;}
-    @media(min-width:768px){.nav__book{display:inline-flex;}.nav__hamburger{display:none;}.hide-md{display:none!important;}.nav__logo{margin-left:-90px;}.nav__logo img{height:60px!important;margin-left:-38px;}.nav__logo .nav__logo-text-main{margin-left:38px;}.nav__book{margin-left:95px;}}@media(max-width:767px){.nav__links{display:none;}.nav__logo-text-main{display:none;}.nav__inner{position:relative;}.nav__lang{position:absolute;left:110px;}.nav__book{margin-right:38px;}.show-mobile-only{display:block;}.footer__grid{grid-template-columns:1fr;gap:32px;}}
+    @media(min-width:768px){.nav__book{display:inline-flex;}.nav__hamburger{display:none;}.hide-md{display:none!important;}.nav__logo{margin-left:-120px;}.nav__logo img{height:60px!important;margin-left:-38px;}.nav__logo .nav__logo-text-main{margin-left:38px;}.nav__book{margin-left:95px;}}@media(max-width:767px){.nav__links{display:none;}.nav__logo-text-main{display:none;}.nav__inner{position:relative;}.nav__lang{position:absolute;left:110px;}.nav__book{margin-right:38px;}.show-mobile-only{display:block;}.footer__grid{grid-template-columns:1fr;gap:32px;}}
     #reviews-main { background:#fff; padding:clamp(5rem,9vw,8rem) var(--gutter); }
     .reviews-score-bar { display:flex; align-items:center; gap:40px; margin-bottom:56px; flex-wrap:wrap; justify-content:center; }
     @media(min-width:768px){ .reviews-score-bar{ flex-direction:row; justify-content:space-between; align-items:flex-end; } }
@@ -53,35 +53,37 @@
 <!-- NAV -->
 <header class="nav" id="nav">
   <div class="nav__inner">
-    <a href="index.html" class="nav__logo">
+    <a href="index.html" class="nav__logo" aria-label="Spavas Dental Studio — Home">
       <img src="assets/logo.png" alt="Spavas Dental Studio" height="48" style="width:auto;display:block;object-fit:contain;">
       <div class="nav__logo-text-main" style="white-space:nowrap;letter-spacing:0.08em;">Spavas Dental Studio</div>
     </a>
     <nav class="nav__links">
-      <a href="services.html" data-t="nav.services">Servizi</a>
-      <a href="about.html" data-t="nav.about">Chi Siamo</a>
-      <a href="gallery.html" data-t="nav.gallery">Galleria</a>
-      <a href="reviews.html" data-t="nav.reviews" class="active">Recensioni</a>
-      <a href="contact.html" data-t="nav.contact">Contatti</a>
+      <a href="index.html"    id="nl-home"     data-t="nav.home">Home</a>
+      <a href="services.html" id="nl-services" data-t="nav.services">Servizi</a>
+      <a href="about.html"    id="nl-about"    data-t="nav.about">Chi Siamo</a>
+      <a href="gallery.html"  id="nl-gallery"  data-t="nav.gallery">Galleria</a>
+      <a href="reviews.html"  id="nl-reviews"  data-t="nav.reviews" class="active">Recensioni</a>
+      <a href="contact.html"  id="nl-contact"  data-t="nav.contact">Contatti</a>
     </nav>
     <div class="nav__right">
-      <div class="nav__lang">
-        <button onclick="setLang('it')" id="lang-it">IT</button>
-        <button onclick="setLang('sq')" id="lang-sq">AL</button>
-        <button onclick="setLang('en')" id="lang-en">EN</button>
+      <div class="nav__lang" role="group" aria-label="Select language">
+        <button onclick="setLang('it')" id="lang-it" aria-label="Italiano">IT</button>
+        <button onclick="setLang('sq')" id="lang-sq" aria-label="Shqip">AL</button>
+        <button onclick="setLang('en')" id="lang-en" aria-label="English">EN</button>
       </div>
-      <a href="contact.html" class="btn btn--cyan nav__book" data-t="nav.book">Prenota</a>
-      <button class="nav__hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+      <a href="contact.html" class="btn btn--cyan nav__book" id="nav-book-btn" data-t="nav.book">Prenota</a>
+      <button class="nav__hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 <div class="nav__mobile" id="mobile-menu">
-  <a href="services.html" data-t="nav.services">Servizi</a>
-  <a href="about.html" data-t="nav.about">Chi Siamo</a>
-  <a href="gallery.html" data-t="nav.gallery">Galleria</a>
-  <a href="reviews.html" data-t="nav.reviews">Recensioni</a>
-  <a href="contact.html" data-t="nav.contact">Contatti</a>
-  <a href="contact.html" class="nav__mobile-book" data-t="nav.book">Prenota</a>
+  <a href="index.html"    id="ml-home"     data-t="nav.home">Home</a>
+  <a href="services.html" id="ml-services" data-t="nav.services">Servizi</a>
+  <a href="about.html"    id="ml-about"    data-t="nav.about">Chi Siamo</a>
+  <a href="gallery.html"  id="ml-gallery"  data-t="nav.gallery">Galleria</a>
+  <a href="reviews.html"  id="ml-reviews"  data-t="nav.reviews">Recensioni</a>
+  <a href="contact.html"  id="ml-contact"  data-t="nav.contact">Contatti</a>
+  <a href="contact.html"  id="ml-book"     class="nav__mobile-book" data-t="nav.book">Prenota</a>
 </div>
 
 <!-- PAGE HERO -->
@@ -169,7 +171,7 @@
           <svg width="13" height="13" viewBox="0 0 24 24" fill="var(--cyan)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="var(--cyan)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
-        <p class="review-text">"Klinikë fantastike! Dr. Anxhela është shumë profesionale dhe e kujdesshme. Implanti im doli perfekt dhe pa dhimbje. Ekipi është i shkëlqyer dhe shumë miqësor. Rekomandoj fuqishëm!"</p>
+        <p class="review-text">"Klinikë fantastike! Dr. Shkumbin është shumë profesional dhe e kujdesshme. Implanti im doli perfekt dhe pa dhimbje. Ekipi është i shkëlqyer dhe shumë miqësor. Rekomandoj fuqishëm!"</p>
         <div class="review-author">
           <div class="review-avatar">AM</div>
           <div>
