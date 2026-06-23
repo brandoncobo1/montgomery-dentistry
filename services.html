@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
@@ -38,7 +38,7 @@
     .footer__contact-item{display:flex;align-items:flex-start;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.72);margin-bottom:10px;}.footer__contact-item a{color:rgba(255,255,255,0.72);transition:color 0.2s;}.footer__contact-item a:hover{color:var(--cyan-mid);}.footer__bottom{max-width:var(--max-w);margin:0 auto;border-top:1px solid rgba(255,255,255,0.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}.footer__rights{font-size:0.72rem;color:rgba(255,255,255,0.5);}.footer__crafted{font-size:0.72rem;color:rgba(255,255,255,0.45);}.footer__hours{color:rgba(255,255,255,0.72);}
     .field{display:flex;flex-direction:column;gap:6px;}.field label{font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-mid);}.field input,.field select,.field textarea{width:100%;padding:12px 16px;border-radius:var(--radius);border:1px solid var(--border);background:var(--cream2);color:var(--ink);font-family:inherit;font-size:0.88rem;outline:none;transition:border-color 0.2s ease;}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--cyan);}.field textarea{resize:none;}
     .page-hero{background:var(--dark);padding:calc(var(--nav-h) + 3rem) var(--gutter) 2.5rem;text-align:center;}.page-hero__label{color:var(--cyan-mid);}.page-hero__h1{font-size:clamp(2.4rem,6vw,4rem);font-weight:800;letter-spacing:-0.03em;color:#fff;line-height:1.05;margin-bottom:16px;}.page-hero__h1 span{color:var(--cyan-mid);}.page-hero__sub{font-size:1rem;color:rgba(255,255,255,0.55);max-width:520px;margin:0 auto;line-height:1.8;}
-    @media(min-width:768px){.nav__book{display:inline-flex;}.nav__hamburger{display:none;}.hide-md{display:none!important;}.nav__logo{margin-left:-120px;}.nav__logo img{height:60px!important;margin-left:-38px;}.nav__logo .nav__logo-text-main{margin-left:38px;}.nav__book{margin-left:95px;}}@media(max-width:767px){.nav__links{display:none;}.nav__logo-text-main{display:none;}.nav__inner{position:relative;}.nav__lang{position:absolute;left:110px;}.nav__book{margin-right:38px;}.show-mobile-only{display:block;}.footer__grid{grid-template-columns:1fr;gap:32px;}}
+    @media(min-width:768px){.nav__book{display:inline-flex;margin-left:20px;}.nav__hamburger{display:none;}.hide-md{display:none!important;}.nav__logo img{height:56px!important;margin-left:-55px;}.nav__logo-text-main{margin-left:5px;}.nav__inner{gap:19px;}.nav__right{gap:19px;}}@media(max-width:767px){.nav__links{display:none;}.nav__logo-text-main{display:none;}.nav__inner{position:relative;}.nav__lang{position:absolute;left:110px;}.nav__book{margin-right:38px;}.show-mobile-only{display:block;}.footer__grid{grid-template-columns:1fr;gap:32px;}}
     /* ── PAGE HERO ───────────────────────────────────── */
     .page-hero {
       position:relative;
@@ -623,48 +623,37 @@ function setLang(l) {
 ═══════════════════════════════════════════════════════ -->
 <header class="nav" id="nav">
   <div class="nav__inner">
-
-    <!-- Logo -->
     <a href="index.html" class="nav__logo" aria-label="Spavas Dental Studio — Home">
       <img src="assets/logo.png" alt="Spavas Dental Studio" height="48" style="width:auto;display:block;object-fit:contain;">
       <div class="nav__logo-text-main" style="white-space:nowrap;letter-spacing:0.08em;">Spavas Dental Studio</div>
     </a>
-      <a href="services.html" id="nl-services" class="active"></a>
-      <a href="about.html"    id="nl-about"></a>
-      <a href="gallery.html"  id="nl-gallery"></a>
-      <a href="reviews.html"  id="nl-reviews"></a>
-      <a href="contact.html"  id="nl-contact"></a>
+    <nav class="nav__links">
+      <a href="index.html"    id="nl-home"     data-t="nav.home">Home</a>
+      <a href="services.html" id="nl-services" data-t="nav.services" class="active">Servizi</a>
+      <a href="about.html"    id="nl-about"    data-t="nav.about">Chi Siamo</a>
+      <a href="gallery.html"  id="nl-gallery"  data-t="nav.gallery">Galleria</a>
+      <a href="reviews.html"  id="nl-reviews"  data-t="nav.reviews">Recensioni</a>
+      <a href="contact.html"  id="nl-contact"  data-t="nav.contact">Contatti</a>
     </nav>
-
-    <!-- Right controls -->
     <div class="nav__right">
-      <!-- Lang switcher -->
       <div class="nav__lang" role="group" aria-label="Select language">
-        <button onclick="setLang('it')" id="lb-it" aria-label="Italiano">IT</button>
-        <button onclick="setLang('sq')" id="lb-sq" aria-label="Shqip">AL</button>
-        <button onclick="setLang('en')" id="lb-en" aria-label="English">EN</button>
+        <button onclick="setLang('it')" id="lang-it" aria-label="Italiano">IT</button>
+        <button onclick="setLang('sq')" id="lang-sq" aria-label="Shqip">AL</button>
+        <button onclick="setLang('en')" id="lang-en" aria-label="English">EN</button>
       </div>
-      <!-- Book CTA desktop -->
-      <a href="contact.html" class="nav__book" id="nav-book-btn"></a>
-      <!-- Hamburger -->
-      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMenu()">
-        <span id="hb1"></span>
-        <span id="hb2"></span>
-        <span id="hb3" style="width:16px;margin-left:auto;"></span>
-      </button>
+      <a href="contact.html" class="btn btn--cyan nav__book" id="nav-book-btn" data-t="nav.book">Prenota</a>
+      <button class="nav__hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
-
-<!-- Mobile menu -->
-<div class="nav__mobile" id="mobile-menu" role="dialog" aria-label="Navigation menu">
-  <a href="index.html"    id="ml-home"    onclick="closeMenu()"></a>
-  <a href="services.html" id="ml-services" onclick="closeMenu()" style="color:var(--cyan-mid);"></a>
-  <a href="about.html"    id="ml-about"   onclick="closeMenu()"></a>
-  <a href="gallery.html"  id="ml-gallery" onclick="closeMenu()"></a>
-  <a href="reviews.html"  id="ml-reviews" onclick="closeMenu()"></a>
-  <a href="contact.html"  id="ml-contact" onclick="closeMenu()"></a>
-  <a href="contact.html"  id="ml-book"   onclick="closeMenu()" class="nav__mobile-book"></a>
+<div class="nav__mobile" id="mobile-menu">
+  <a href="index.html"    id="ml-home"     data-t="nav.home">Home</a>
+  <a href="services.html" id="ml-services" data-t="nav.services">Servizi</a>
+  <a href="about.html"    id="ml-about"    data-t="nav.about">Chi Siamo</a>
+  <a href="gallery.html"  id="ml-gallery"  data-t="nav.gallery">Galleria</a>
+  <a href="reviews.html"  id="ml-reviews"  data-t="nav.reviews">Recensioni</a>
+  <a href="contact.html"  id="ml-contact"  data-t="nav.contact">Contatti</a>
+  <a href="contact.html"  id="ml-book"     class="nav__mobile-book" data-t="nav.book">Prenota</a>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════
@@ -716,7 +705,7 @@ function setLang(l) {
       <!-- Rendered by JS -->
     </div>
     <div class="reveal" style="margin-top:2.5rem;">
-      <a href="https://wa.me/355698422428" target="_blank" rel="noopener noreferrer"
+      <a href="https://wa.me/39695584588" target="_blank" rel="noopener noreferrer"
         class="btn btn--wa" style="margin:0 auto;">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         <span id="process-wa-cta">Inizia con WhatsApp — È Gratuito</span>
@@ -758,7 +747,7 @@ function setLang(l) {
     <p class="reveal d1" style="color:rgba(255,255,255,0.55);font-size:0.95rem;line-height:1.7;margin-bottom:2rem;" id="cta-sub"></p>
     <div class="reveal d2" style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;">
       <a href="contact.html" class="btn btn--cyan" id="cta-btn1"></a>
-      <a href="https://wa.me/355698422428" target="_blank" rel="noopener noreferrer" class="btn btn--wa" id="cta-btn2">
+      <a href="https://wa.me/39695584588" target="_blank" rel="noopener noreferrer" class="btn btn--wa" id="cta-btn2">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         <span id="cta-btn2-text"></span>
       </a>
@@ -783,7 +772,7 @@ function setLang(l) {
       </div>
       <p class="footer__tagline" id="footer-tagline"></p>
       <div class="footer__socials">
-        <a href="https://wa.me/355698422428" target="_blank" rel="noopener noreferrer" class="footer__social footer__social--wa" aria-label="WhatsApp">
+        <a href="https://wa.me/39695584588" target="_blank" rel="noopener noreferrer" class="footer__social footer__social--wa" aria-label="WhatsApp">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         </a>
         <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="footer__social" aria-label="Facebook">
@@ -817,7 +806,7 @@ function setLang(l) {
       </div>
       <div class="footer__contact-item">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17z"/></svg>
-        <a href="tel:+355698422428">+355 69 842 2428</a>
+        <a href="tel:+39695584588">+39 069 558 4588</a>
       </div>
       <div class="footer__contact-item">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-mid)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -835,7 +824,7 @@ function setLang(l) {
 <!-- ═══════════════════════════════════════════════════════
      FLOATING WHATSAPP
 ═══════════════════════════════════════════════════════ -->
-<a href="https://wa.me/355698422428" target="_blank" rel="noopener noreferrer"
+<a href="https://wa.me/39695584588" target="_blank" rel="noopener noreferrer"
   class="wa-float" id="wa-float" aria-label="WhatsApp">
   <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
