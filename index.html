@@ -149,8 +149,8 @@
     .hq-item.selected .hq-item-name { color:#fff; }
     .hq-item-controls { display:none; align-items:center; gap:5px; justify-content:center; margin-top:7px; }
     .hq-item.selected .hq-item-controls { display:flex; }
-    .hq-qty-btn { display:none; }
-    .hq-qty-btn:hover { background:rgba(255,255,255,0.18); border-color:rgba(255,255,255,0.5); }
+    .hq-qty-btn { display:flex; align-items:center; justify-content:center; width:20px; height:20px; border-radius:50%; border:1px solid rgba(255,255,255,0.3); background:rgba(255,255,255,0.1); color:#fff; font-size:0.8rem; font-weight:700; cursor:pointer; transition:background 0.15s,border-color 0.15s; line-height:1; }
+    .hq-qty-btn:hover { background:rgba(255,255,255,0.22); border-color:rgba(255,255,255,0.6); }
     .hq-qty-num { font-size:0.68rem; font-weight:700; color:#fff; min-width:14px; text-align:center; }
     .hq-result { margin-bottom:16px; }
     .hq-result-inner { padding:14px 16px; border-radius:14px; background:linear-gradient(135deg,rgba(6,182,212,0.14),rgba(8,145,178,0.08)); border:1px solid rgba(6,182,212,0.25); display:flex; align-items:center; justify-content:space-between; gap:12px; box-shadow:inset 0 1px 0 rgba(6,182,212,0.2); }
@@ -192,7 +192,7 @@
     .stat-label { font-size:0.7rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.4); }
 
     /* ===== PROCESS - TIMELINE ===== */
-    #process { background:var(--cream); padding:clamp(5rem,9vw,8rem) var(--gutter); }
+    #process { background:var(--cream); padding:clamp(2.5rem,5vw,4rem) var(--gutter); }
     .process-steps { display:grid; grid-template-columns:1fr; gap:48px; max-width:var(--max-w); margin:0 auto; position:relative; }
     @media(min-width:768px){ .process-steps{ grid-template-columns:repeat(3,1fr); gap:0; } .process-steps::before{ content:''; position:absolute; top:32px; left:calc(16.67% + 16px); right:calc(16.67% + 16px); height:1px; background:linear-gradient(90deg,transparent,var(--cyan-mid) 20%,rgba(8,145,178,0.35) 50%,var(--cyan-mid) 80%,transparent); } }
     .process-step { padding:0 32px 32px; text-align:center; background:none; border:none; border-radius:0; }
@@ -203,7 +203,7 @@
     .step-desc { font-size:0.83rem; color:var(--ink-mid); line-height:1.8; max-width:220px; margin:0 auto; }
 
     /* ===== SERVICES PREVIEW ===== */
-    #services { background:#fff; padding:clamp(5rem,9vw,8rem) var(--gutter); }
+    #services { background:#fff; padding:clamp(2.5rem,5vw,4rem) var(--gutter); }
     .services-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; max-width:var(--max-w); margin:0 auto; }
     @media(min-width:768px){ .services-grid{ grid-template-columns:repeat(3,1fr); } }
     .srv-card { background:var(--cream); border:1px solid var(--border); border-radius:16px; padding:28px 24px; transition:all 0.25s var(--ease-out); cursor:pointer; text-decoration:none; display:flex; flex-direction:column; }
@@ -214,12 +214,17 @@
     .srv-link { font-size:0.7rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--cyan); }
 
     /* ===== BEFORE/AFTER ===== */
-    #ba { background:var(--surface); padding:clamp(5rem,9vw,8rem) var(--gutter); }
-    .ba-grid { display:grid; grid-template-columns:1fr; gap:24px; max-width:var(--max-w); margin:0 auto; }
-    @media(min-width:768px){ .ba-grid{ grid-template-columns:repeat(3,1fr); } }
+    #ba { background:var(--surface); padding:clamp(2.5rem,5vw,4rem) var(--gutter); }
+    .ba-grid { display:grid; grid-template-columns:1fr; gap:80px; max-width:var(--max-w); margin:0 auto; }
+    @media(min-width:768px){ .ba-grid{ grid-template-columns:repeat(3,1fr); gap:80px; } }
     .ba-card { background:#fff; border:1px solid var(--border); border-radius:16px; overflow:hidden; }
-    .ba-img-wrap { position:relative; width:100%; background:#111; overflow:hidden; }
-    .ba-img-wrap img { width:100%; height:auto; display:block; object-fit:contain; }
+    .ba-img-wrap { position:relative; width:100%; background:transparent; overflow:hidden; display:flex; flex-direction:column; gap:30px; }
+    .ba-img-wrap img { width:100%; display:block; object-fit:cover; object-position:center; }
+    .ba-img-slot { position:relative; overflow:hidden; height:220px; }
+    .ba-img-slot img { width:100%; height:100%; object-fit:cover; object-position:center; display:block; }
+    .ba-img-label { position:absolute; bottom:8px; left:8px; font-size:0.58rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#fff; padding:3px 8px; border-radius:6px; backdrop-filter:blur(4px); }
+    .ba-img-label--before { background:rgba(0,0,0,0.55); }
+    .ba-img-label--after { background:rgba(8,145,178,0.8); }
     .ba-labels { position:absolute; bottom:10px; left:0; right:0; display:flex; justify-content:space-between; padding:0 10px; pointer-events:none; }
     .ba-label { font-size:0.58rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#fff; padding:4px 8px; border-radius:6px; backdrop-filter:blur(4px); }
     .ba-label--before { background:rgba(0,0,0,0.55); }
@@ -229,7 +234,7 @@
     .ba-badge { padding:3px 10px; border-radius:999px; background:var(--surface); color:var(--cyan); font-size:0.6rem; font-weight:700; }
 
     /* ===== PRICING ===== */
-    #pricing { background:var(--dark); padding:clamp(5rem,9vw,8rem) var(--gutter); }
+    #pricing { background:var(--dark); padding:clamp(2.5rem,5vw,4rem) var(--gutter); }
     .pricing-grid { display:grid; grid-template-columns:1fr; gap:16px; max-width:var(--max-w); margin:0 auto; }
     @media(min-width:640px){ .pricing-grid{ grid-template-columns:repeat(2,1fr); } }
     @media(min-width:1024px){ .pricing-grid{ grid-template-columns:repeat(3,1fr); } }
@@ -251,7 +256,7 @@
     .price-cta--dark:hover { background:var(--dark); }
 
     /* ===== QUOTE GENERATOR ===== */
-    #quote { background:var(--cream); padding:clamp(3rem,6vw,5rem) var(--gutter) clamp(4rem,7vw,6rem); }
+    #quote { background:var(--cream); padding:clamp(2.5rem,5vw,4rem) var(--gutter); }
     .quote-wrap { max-width:800px; margin:0 auto; }
     .quote-treatments { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:32px; margin-bottom:20px; }
     @media(min-width:640px){ .quote-treatments{ grid-template-columns:repeat(4,1fr); } }
@@ -273,7 +278,7 @@
     .quote-ctas { display:flex; flex-wrap:wrap; gap:10px; }
 
     /* ===== REVIEWS PREVIEW ===== */
-    #reviews { background:#fff; padding:clamp(5rem,9vw,8rem) var(--gutter); }
+    #reviews { background:#fff; padding:clamp(2.5rem,5vw,4rem) var(--gutter); }
     .reviews-grid { display:grid; grid-template-columns:1fr; gap:20px; max-width:var(--max-w); margin:0 auto; }
     @media(min-width:640px){ .reviews-grid{ grid-template-columns:repeat(3,1fr); } }
     .rv-card { background:var(--cream); border:1px solid var(--border); border-radius:16px; padding:24px; display:flex; flex-direction:column; }
@@ -285,7 +290,7 @@
     .rv-meta { font-size:0.68rem; color:var(--ink-mid); }
 
     /* ===== CTA STRIP ===== */
-    #cta { background:linear-gradient(135deg,var(--dark) 0%,rgba(8,145,178,0.25) 100%); padding:clamp(4rem,7vw,6rem) var(--gutter); border-top:1px solid rgba(6,182,212,0.15); }
+    #cta { background:linear-gradient(135deg,var(--dark) 0%,rgba(8,145,178,0.25) 100%); padding:clamp(2.5rem,5vw,4rem) var(--gutter); border-top:1px solid rgba(6,182,212,0.15); }
     .cta-inner { max-width:var(--max-w); margin:0 auto; display:grid; grid-template-columns:1fr; gap:48px; align-items:center; }
     @media(min-width:768px){ .cta-inner{ grid-template-columns:3fr 2fr; } }
     .cta-trust-box { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:20px; padding:32px; text-align:center; }
@@ -445,7 +450,7 @@
         <button onclick="setLang('fr')" id="lang-fr" aria-label="Français">FR</button>
         <button onclick="setLang('it')" id="lang-it" aria-label="Italiano">IT</button>
       </div>
-      <button onclick="openChat()" class="btn btn--cyan nav__book" id="nav-book-btn" data-t="nav.book">Book Now</button>
+      <a href="book.html" class="btn btn--cyan nav__book" id="nav-book-btn" data-t="nav.book">Book Now</a>
       <button class="nav__hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -457,7 +462,7 @@
   <a href="gallery.html"  id="ml-gallery"  data-t="nav.gallery">Galleria</a>
   <a href="reviews.html"  id="ml-reviews"  data-t="nav.reviews">Recensioni</a>
   <a href="contact.html"  id="ml-contact"  data-t="nav.contact">Contatti</a>
-  <button onclick="openChat();toggleMenu()" id="ml-book" class="nav__mobile-book" data-t="nav.book">Book Now</button>
+  <a href="book.html" onclick="toggleMenu()" id="ml-book" class="nav__mobile-book" data-t="nav.book">Book Now</a>
 </div>
 
 <!-- ===== 1. HERO ===== -->
@@ -483,7 +488,7 @@
       </h1>
       <p class="hero__sub" data-t="hero.sub">Cure dentali d'eccellenza nel cuore di Valona. Implantologia, faccette, sbiancamento e molto altro, con prezzi accessibili e qualità europea.</p>
       <div class="hero__actions">
-        <button onclick="openChat()" class="btn btn--cyan" data-t="hero.cta1">Schedule an Appointment</button>
+        <a href="book.html" class="btn btn--cyan" data-t="hero.cta1">Schedule an Appointment</a>
         <a href="tel:+13342790760" class="btn btn--wa">
           <svg viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <span data-t="hero.cta2">Call Us Now</span>
@@ -522,7 +527,7 @@
           </div>
         </div>
         <div class="hq-ctas">
-          <button onclick="openChat()" class="hq-cta hq-cta--book" id="hq-cta">Book Now</button>
+          <a href="book.html" class="hq-cta hq-cta--book" id="hq-cta">Book Now</a>
           <a href="tel:+13342790760" class="hq-cta hq-cta--wa" id="hq-cta-wa">
             <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             <span id="hq-cta-wa-text">Call Now</span>
@@ -545,41 +550,47 @@
   <div class="ba-grid">
     <div class="ba-card reveal">
       <div class="ba-img-wrap">
-        <img src="https://res.cloudinary.com/dr63qmw21/image/upload/f_auto,q_auto/v1781992997/IMG_6426_hrgy9t.jpg" alt="Prima e Dopo - Impianto Singolo" loading="lazy" width="1200" height="800">
-        <div class="ba-labels">
-          <span class="ba-label ba-label--before" data-t="ba.before">Prima</span>
-          <span class="ba-label ba-label--after" data-t="ba.after">Dopo</span>
+        <div class="ba-img-slot">
+          <img src="Dental Implant Before.jpg" alt="Dental Implant Before" loading="lazy">
+          <span class="ba-img-label ba-img-label--before">Before</span>
+        </div>
+        <div class="ba-img-slot">
+          <img src="Dental Implant After.jpg" alt="Dental Implant After" loading="lazy">
+          <span class="ba-img-label ba-img-label--after">After</span>
         </div>
       </div>
       <div class="ba-footer">
-        <span class="ba-title">Impianto Singolo</span>
-        <span class="ba-badge" data-t="ba.badge">✓ VERIFICATO REALE</span>
+        <span class="ba-title" data-t="ba.items.0.title">Dental Implant</span>
       </div>
     </div>
     <div class="ba-card reveal d1">
       <div class="ba-img-wrap">
-        <img src="https://res.cloudinary.com/dr63qmw21/image/upload/f_auto,q_auto/v1781992997/IMG_6425_iox1ho.jpg" alt="Prima e Dopo - Sbiancamento" loading="lazy" width="1200" height="800">
-        <div class="ba-labels">
-          <span class="ba-label ba-label--before" data-t="ba.before">Prima</span>
-          <span class="ba-label ba-label--after" data-t="ba.after">Dopo</span>
+        <div class="ba-img-slot">
+          <img src="Teeth Whitening Before.jpg" alt="Teeth Whitening Before" loading="lazy">
+          <span class="ba-img-label ba-img-label--before">Before</span>
+        </div>
+        <div class="ba-img-slot">
+          <img src="Teeth Whitening After.jpg" alt="Teeth Whitening After" loading="lazy">
+          <span class="ba-img-label ba-img-label--after">After</span>
         </div>
       </div>
       <div class="ba-footer">
-        <span class="ba-title">Sbiancamento</span>
-        <span class="ba-badge" data-t="ba.badge">✓ VERIFICATO REALE</span>
+        <span class="ba-title" data-t="ba.items.1.title">Teeth Whitening</span>
       </div>
     </div>
     <div class="ba-card reveal d2">
       <div class="ba-img-wrap">
-        <img src="https://res.cloudinary.com/dr63qmw21/image/upload/f_auto,q_auto/v1781992997/IMG_6427_v9sz23.jpg" alt="Prima e Dopo - Faccette" loading="lazy" width="1200" height="800">
-        <div class="ba-labels">
-          <span class="ba-label ba-label--before" data-t="ba.before">Prima</span>
-          <span class="ba-label ba-label--after" data-t="ba.after">Dopo</span>
+        <div class="ba-img-slot">
+          <img src="Veneers Before.png" alt="Veneers Before" loading="lazy">
+          <span class="ba-img-label ba-img-label--before">Before</span>
+        </div>
+        <div class="ba-img-slot">
+          <img src="Veneers After.png" alt="Veneers After" loading="lazy">
+          <span class="ba-img-label ba-img-label--after">After</span>
         </div>
       </div>
       <div class="ba-footer">
-        <span class="ba-title">Faccette in Porcellana</span>
-        <span class="ba-badge" data-t="ba.badge">✓ VERIFICATO REALE</span>
+        <span class="ba-title" data-t="ba.items.2.title">Veneers</span>
       </div>
     </div>
   </div>
@@ -761,7 +772,7 @@
       <div class="price-desc">Complete evaluation, X-rays included</div>
       <div class="price-amount price-amount--free">Free</div>
       <div class="price-unit">per visit</div>
-      <a href="#" onclick="openChat();return false;" class="price-cta price-cta--outline" data-t="pricing.bookBtn">Book</a>
+      <a href="book.html" class="price-cta price-cta--outline" data-t="pricing.bookBtn">Book</a>
     </div>
     <!-- 2. Teeth Whitening -->
     <div class="price-card reveal d1">
@@ -769,7 +780,7 @@
       <div class="price-desc">Professional take-home whitening kit</div>
       <div class="price-amount">$399</div>
       <div class="price-unit">per treatment</div>
-      <a href="#" onclick="openChat();return false;" class="price-cta price-cta--outline" data-t="pricing.bookBtn">Book</a>
+      <a href="book.html" class="price-cta price-cta--outline" data-t="pricing.bookBtn">Book</a>
     </div>
     <!-- 3. Porcelain Crown -->
     <div class="price-card reveal d2">
@@ -777,7 +788,7 @@
       <div class="price-desc">High-quality, natural-looking restoration</div>
       <div class="price-amount">$1,200</div>
       <div class="price-unit">per tooth</div>
-      <a href="#" onclick="openChat();return false;" class="price-cta price-cta--outline" data-t="pricing.bookBtn">Book</a>
+      <a href="book.html" class="price-cta price-cta--outline" data-t="pricing.bookBtn">Book</a>
     </div>
     <!-- 4. Dental Bridge (HIGHLIGHT) -->
     <div class="price-card price-card--highlight reveal d3">
@@ -786,7 +797,7 @@
       <div class="price-desc">Fixed solution for missing teeth</div>
       <div class="price-amount">$1,800</div>
       <div class="price-unit">per bridge</div>
-      <a href="#" onclick="openChat();return false;" class="price-cta price-cta--dark" data-t="pricing.bookBtn">Book</a>
+      <a href="book.html" class="price-cta price-cta--dark" data-t="pricing.bookBtn">Book</a>
     </div>
     <!-- 5. Porcelain Veneers -->
     <div class="price-card reveal d4">
@@ -794,7 +805,7 @@
       <div class="price-desc">Custom-crafted for a perfect smile</div>
       <div class="price-amount">$900</div>
       <div class="price-unit">per tooth</div>
-      <a href="#" onclick="openChat();return false;" class="price-cta price-cta--outline" data-t="pricing.bookBtn">Book</a>
+      <a href="book.html" class="price-cta price-cta--outline" data-t="pricing.bookBtn">Book</a>
     </div>
     <!-- 6. Dental Implant -->
     <div class="price-card reveal d5">
@@ -802,7 +813,7 @@
       <div class="price-desc">Permanent solution with crown included</div>
       <div class="price-amount">$1,500</div>
       <div class="price-unit">per implant</div>
-      <a href="#" onclick="openChat();return false;" class="price-cta price-cta--outline" data-t="pricing.bookBtn">Book</a>
+      <a href="book.html" class="price-cta price-cta--outline" data-t="pricing.bookBtn">Book</a>
     </div>
   </div>
 </section>
@@ -822,7 +833,7 @@
         <div class="quote-note" data-t="quote.note">* Indicative estimate. Exact price confirmed after your consultation.</div>
       </div>
       <div class="quote-ctas">
-        <button onclick="openChat()" class="hq-cta hq-cta--book" data-t="quote.bookBtn">Book to Confirm</button>
+        <a href="book.html" class="hq-cta hq-cta--book" data-t="quote.bookBtn">Book to Confirm</a>
         <a href="tel:+13342790760" class="hq-cta hq-cta--wa">
           <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <span data-t="quote.waBtn">Call Now</span>
@@ -867,7 +878,7 @@
       <h2 class="section-h2" style="color:#fff;margin-bottom:16px" data-t="cta.h2">Pronto per il Sorriso che Meriti?</h2>
       <p style="color:rgba(255,255,255,0.55);font-size:1rem;line-height:1.75;margin-bottom:36px" data-t="cta.sub">Prenota la tua visita gratuita oggi. Nessun obbligo, solo un sorriso migliore.</p>
       <div style="display:flex;flex-wrap:wrap;gap:14px;">
-        <button onclick="openChat()" class="btn btn--cyan" data-t="cta.btn1">Schedule an Appointment</button>
+        <a href="book.html" class="btn btn--cyan" data-t="cta.btn1">Schedule an Appointment</a>
         <a href="tel:+13342790760" class="btn btn--wa">
           <svg viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <span data-t="cta.btn2">Call 334.279.0760</span>
@@ -1220,7 +1231,7 @@ function heroUpdateQuote() {
   const result = document.getElementById('hq-result');
   const range = document.getElementById('hq-est-range');
   if (!result || !range) return;
-  if (heroSelected.size === 0) { result.classList.remove('show'); return; }
+  if (heroSelected.size === 0) { range.textContent = '$0'; result.classList.add('show'); return; }
   let minTotal = 0, maxTotal = 0;
   heroSelected.forEach(i => {
     const tr = TREATMENTS[i];

@@ -138,7 +138,7 @@
     .page-hero__h1 span{color:var(--cyan-mid);}
     .page-hero__sub{font-size:clamp(0.95rem,2vw,1.1rem);color:rgba(255,255,255,0.55);max-width:540px;margin:0 auto;line-height:1.8;}
     /* CONTACT SECTION */
-    #contact-main{background:var(--cream);padding:clamp(5rem,9vw,8rem) var(--gutter);}
+    #contact-main{background:var(--cream);padding:clamp(2.5rem,5vw,4rem) var(--gutter);}
     .contact-grid{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:1fr;gap:3rem;align-items:start;}
     @media(min-width:900px){.contact-grid{grid-template-columns:1fr 1fr;}}
     .contact-cards{display:flex;flex-direction:column;gap:1rem;}
@@ -152,12 +152,12 @@
     .contact-card__btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(3,105,161,0.35);}
     .map-wrap{border-radius:16px;overflow:hidden;box-shadow:0 8px 32px rgba(8,145,178,0.1);}
     /* INSURANCE */
-    #insurance{background:#fff;padding:clamp(4rem,7vw,6rem) var(--gutter);text-align:center;border-top:1px solid var(--border);}
+    #insurance{background:#fff;padding:clamp(2.5rem,5vw,4rem) var(--gutter);text-align:center;border-top:1px solid var(--border);}
     .insurance-pills{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:2rem auto;max-width:700px;}
     .insurance-pill{padding:8px 20px;border-radius:999px;border:1px solid var(--border);background:var(--cream);font-size:0.82rem;font-weight:600;color:var(--ink);}
     .insurance-note{font-size:0.82rem;color:var(--ink-mid);}
     /* CTA STRIP */
-    #cta-strip{background:linear-gradient(135deg,var(--dark) 0%,rgba(8,145,178,0.25) 100%);padding:clamp(4rem,7vw,6rem) var(--gutter);text-align:center;border-top:1px solid rgba(6,182,212,0.15);}
+    #cta-strip{background:linear-gradient(135deg,var(--dark) 0%,rgba(8,145,178,0.25) 100%);padding:clamp(2.5rem,5vw,4rem) var(--gutter);text-align:center;border-top:1px solid rgba(6,182,212,0.15);}
     .cta-btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:2rem;}
     /* RESPONSIVE */
     @media(min-width:768px){.nav__book{display:inline-flex;margin-left:20px;}.nav__hamburger{display:none;}.nav__inner{gap:19px;}.nav__right{gap:19px;}.nav__logo img{height:40px!important;}}
@@ -187,7 +187,7 @@
         <button onclick="setLang('fr')" id="lang-fr" aria-label="Français">FR</button>
         <button onclick="setLang('it')" id="lang-it" aria-label="Italiano">IT</button>
       </div>
-      <button onclick="openChat()" class="btn btn--cyan nav__book" data-t="nav.book">Book Now</button>
+      <a href="book.html" class="btn btn--cyan nav__book" data-t="nav.book">Book Now</a>
       <button class="nav__hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -199,7 +199,7 @@
   <a href="gallery.html" data-t="nav.gallery">Gallery</a>
   <a href="reviews.html" data-t="nav.reviews">Reviews</a>
   <a href="contact.html" data-t="nav.contact">Contact</a>
-  <button onclick="openChat();toggleMenu()" class="nav__mobile-book" data-t="nav.book">Book Now</button>
+  <a href="book.html" onclick="toggleMenu()" class="nav__mobile-book" data-t="nav.book">Book Now</a>
 </div>
 
 <!-- PAGE HERO -->
@@ -849,3 +849,5 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
+
+

@@ -132,7 +132,7 @@
     .page-hero h1 span{color:var(--cyan-mid);}
     .page-hero__sub{font-size:clamp(0.95rem,2vw,1.1rem);color:rgba(255,255,255,0.62);line-height:1.7;max-width:600px;margin:0 auto;}
     /* GALLERY */
-    #gallery-main{background:var(--surface);padding:clamp(5rem,9vw,8rem) var(--gutter);}
+    #gallery-main{background:var(--surface);padding:clamp(2.5rem,5vw,4rem) var(--gutter);}
     .gallery-filters{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:48px;}
     .filter-btn{padding:8px 20px;border-radius:999px;font-size:0.78rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;border:1px solid var(--border);background:transparent;color:var(--ink-mid);cursor:pointer;transition:all 0.2s;font-family:inherit;}
     .filter-btn.active,.filter-btn:hover{background:var(--cyan);color:#fff;border-color:var(--cyan);}
@@ -149,7 +149,7 @@
     .ba-card-title{font-size:0.82rem;font-weight:600;color:var(--dark);}
     .ba-badge{padding:3px 10px;border-radius:999px;background:var(--surface);color:var(--cyan);font-size:0.6rem;font-weight:700;}
     /* CTA STRIP */
-    #cta-strip{background:linear-gradient(135deg,var(--dark) 0%,rgba(8,145,178,0.25) 100%);padding:clamp(4rem,7vw,6rem) var(--gutter);text-align:center;border-top:1px solid rgba(6,182,212,0.15);}
+    #cta-strip{background:linear-gradient(135deg,var(--dark) 0%,rgba(8,145,178,0.25) 100%);padding:clamp(2.5rem,5vw,4rem) var(--gutter);text-align:center;border-top:1px solid rgba(6,182,212,0.15);}
     .cta-btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:2rem;}
     /* RESPONSIVE */
     @media(min-width:768px){.nav__book{display:inline-flex;margin-left:20px;}.nav__hamburger{display:none;}.nav__inner{gap:19px;}.nav__right{gap:19px;}}
@@ -179,7 +179,7 @@
         <button onclick="setLang('fr')" id="lang-fr" aria-label="Français">FR</button>
         <button onclick="setLang('it')" id="lang-it" aria-label="Italiano">IT</button>
       </div>
-      <button onclick="openChat()" class="btn btn--cyan nav__book" data-t="nav.book">Book Now</button>
+      <a href="book.html" class="btn btn--cyan nav__book" data-t="nav.book">Book Now</a>
       <button class="nav__hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -191,7 +191,7 @@
   <a href="gallery.html" data-t="nav.gallery">Gallery</a>
   <a href="reviews.html" data-t="nav.reviews">Reviews</a>
   <a href="contact.html" data-t="nav.contact">Contact</a>
-  <button onclick="openChat();toggleMenu()" class="nav__mobile-book" data-t="nav.book">Book Now</button>
+  <a href="book.html" onclick="toggleMenu()" class="nav__mobile-book" data-t="nav.book">Book Now</a>
 </div>
 
 <!-- PAGE HERO -->
@@ -511,3 +511,5 @@ document.addEventListener('DOMContentLoaded',()=>{
 </script>
 </body>
 </html>
+
+
