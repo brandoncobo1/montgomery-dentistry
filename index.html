@@ -33,7 +33,7 @@
     .reveal-scale.active{opacity:1;transform:none;}
     .d1{transition-delay:0.08s}.d2{transition-delay:0.16s}.d3{transition-delay:0.24s}.d4{transition-delay:0.32s}.d5{transition-delay:0.40s}.d6{transition-delay:0.48s}
     @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
-    @keyframes waPulse{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,0.5);}50%{box-shadow:0 0 0 14px rgba(37,211,102,0);}}
+    @keyframes waPulse{0%{transform:scale(1);opacity:1;}100%{transform:scale(1.9);opacity:0;}}
     @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(8px);}}
     .nav{position:fixed;top:0;left:0;right:0;z-index:50;height:var(--nav-h);transition:background 0.3s ease,backdrop-filter 0.3s ease,border-bottom 0.3s ease;}
     .nav.scrolled{background:rgba(12,26,46,0.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(6,182,212,0.15);}
@@ -74,7 +74,7 @@
     .card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(8,145,178,0.1);border-color:var(--cyan);}
     .wa-float{position:fixed;bottom:24px;right:24px;z-index:50;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);opacity:0;transform:scale(0.8);transition:opacity 0.4s ease,transform 0.4s ease;text-decoration:none;}
     .wa-float.show{opacity:1;transform:scale(1);}
-    .wa-float.pulse{animation:waPulse 2.2s ease-in-out infinite;}
+    .wa-float.pulse::before{content:'';position:absolute;inset:0;border-radius:50%;background:rgba(37,211,102,0.5);animation:waPulse 2.2s ease-out infinite;z-index:-1;}
     .footer{background:#070F1C;border-top:1px solid rgba(6,182,212,0.1);padding:56px var(--gutter) 32px;}
     .footer__grid{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:48px;}
     .footer__brand-name{font-size:0.95rem;font-weight:700;color:#fff;}
@@ -438,7 +438,7 @@
 <header class="nav" id="nav">
   <div class="nav__inner">
     <a href="index.html" class="nav__logo" aria-label="Montgomery Dentistry — Home">
-      <img src="https://res.cloudinary.com/dr63qmw21/image/upload/f_auto,q_auto,h_48/montgomery-dentistry/logo.png" alt="Montgomery Dentistry logo" height="42" style="width:auto;display:block;object-fit:contain;">
+      <img src="https://res.cloudinary.com/dr63qmw21/image/upload/f_auto,q_auto,h_48/montgomery-dentistry/logo.png" alt="Montgomery Dentistry logo" width="140" height="42" style="width:auto;display:block;object-fit:contain;">
       <div class="nav__logo-text-main" style="white-space:nowrap;letter-spacing:0.08em;">Montgomery Dentistry</div>
     </a>
     <nav class="nav__links">
@@ -556,11 +556,11 @@
     <div class="ba-card reveal">
       <div class="ba-img-wrap">
         <div class="ba-img-slot">
-          <img src="Dental Implant Before.jpg" alt="Dental Implant Before" loading="lazy">
+          <img src="Dental Implant Before.jpg" alt="Dental Implant Before" loading="lazy" width="800" height="600">
           <span class="ba-img-label ba-img-label--before">Before</span>
         </div>
         <div class="ba-img-slot">
-          <img src="Dental Implant After.jpg" alt="Dental Implant After" loading="lazy">
+          <img src="Dental Implant After.jpg" alt="Dental Implant After" loading="lazy" width="800" height="600">
           <span class="ba-img-label ba-img-label--after">After</span>
         </div>
       </div>
@@ -571,11 +571,11 @@
     <div class="ba-card reveal d1">
       <div class="ba-img-wrap">
         <div class="ba-img-slot">
-          <img src="Teeth Whitening Before.jpg" alt="Teeth Whitening Before" loading="lazy">
+          <img src="Teeth Whitening Before.jpg" alt="Teeth Whitening Before" loading="lazy" width="800" height="600">
           <span class="ba-img-label ba-img-label--before">Before</span>
         </div>
         <div class="ba-img-slot">
-          <img src="Teeth Whitening After.jpg" alt="Teeth Whitening After" loading="lazy">
+          <img src="Teeth Whitening After.jpg" alt="Teeth Whitening After" loading="lazy" width="800" height="600">
           <span class="ba-img-label ba-img-label--after">After</span>
         </div>
       </div>
@@ -586,11 +586,11 @@
     <div class="ba-card reveal d2">
       <div class="ba-img-wrap">
         <div class="ba-img-slot">
-          <img src="Veneers Before.png" alt="Veneers Before" loading="lazy">
+          <img src="Veneers Before.jpg" alt="Veneers Before" loading="lazy" width="800" height="600">
           <span class="ba-img-label ba-img-label--before">Before</span>
         </div>
         <div class="ba-img-slot">
-          <img src="Veneers After.png" alt="Veneers After" loading="lazy">
+          <img src="Veneers After.jpg" alt="Veneers After" loading="lazy" width="800" height="600">
           <span class="ba-img-label ba-img-label--after">After</span>
         </div>
       </div>
