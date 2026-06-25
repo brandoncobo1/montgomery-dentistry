@@ -106,7 +106,7 @@
     .page-hero__h1 span{color:var(--cyan-mid);}
     .page-hero__sub{font-size:1rem;color:rgba(255,255,255,0.55);max-width:520px;margin:0 auto;line-height:1.8;}
     @media(min-width:768px){.nav__book{display:inline-flex;margin-left:20px;}.nav__hamburger{display:none;}.hide-md{display:none!important;}.nav__logo img{height:40px!important;}.nav__inner{gap:19px;}.nav__right{gap:19px;}}
-    @media(max-width:767px){.nav__links{display:none;}.nav__logo-text-main{display:none;}.nav__inner{position:relative;}.nav__lang{position:absolute;left:80px;}.nav__book{margin-right:12px;padding:8px 14px;font-size:0.68rem;}.show-mobile-only{display:block;}.footer__grid{grid-template-columns:1fr;gap:32px;}}
+    @media(max-width:767px){.nav__links{display:none;}.nav__logo-text-main{display:none;}.nav__inner{position:relative;}.nav__lang{position:absolute;left:100px;}.nav__book{margin-right:12px;padding:8px 14px;font-size:0.68rem;}.show-mobile-only{display:block;}.footer__grid{grid-template-columns:1fr;gap:32px;}}
     /* ===== HERO ===== */
     .hero { position:relative; min-height:100vh; display:flex; align-items:center; overflow:hidden; }
     .hero__bg { position:absolute; inset:0; }
@@ -344,7 +344,12 @@
     .chat-widget.open { transform:translateY(0) scale(1); opacity:1; pointer-events:all; }
     @media(max-width:480px){
       .chat-widget { width:calc(100vw - 24px); right:12px; bottom:0; border-radius:18px 18px 0 0; max-height:85vh; }
-      .chat-float-btn { bottom:80px; right:16px; }
+      .chat-float-btn { bottom:90px; right:16px; }
+      .chat-input-row input { font-size:16px; }
+    }
+    @media(max-width:767px){
+      .wa-float { bottom:24px; right:24px; }
+      .chat-float-btn { bottom:90px; right:24px; }
     }
 
     .chat-hdr {
@@ -1645,6 +1650,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
+
 
 
 
